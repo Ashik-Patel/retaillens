@@ -10,7 +10,6 @@ import streamlit as st
 # Page setup
 st.set_page_config(
     page_title="RetailLens",
-    page_icon="🔍",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -129,7 +128,7 @@ end_date = df["InvoiceDate"].max().strftime("%b %Y")
 
 # Sidebar
 with st.sidebar:
-    st.markdown('<div class="brand-title">🔍 RetailLens</div>', unsafe_allow_html=True)
+    st.markdown('<div class="brand-title">RetailLens</div>', unsafe_allow_html=True)
     st.markdown('<div class="brand-sub">Customer Intelligence Platform</div>', unsafe_allow_html=True)
     st.markdown("---")
 
