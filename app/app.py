@@ -15,7 +15,6 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-
 # Small CSS block for sidebar branding
 st.markdown(
     """
@@ -135,13 +134,7 @@ with st.sidebar:
 
     page = st.radio(
         "Navigate",
-        [
-            "Overview",
-            "Segment Explorer",
-            "CLV Analysis",
-            "Customer Lookup",
-            "Recommendations",
-        ],
+        ["Overview", "Segment Explorer", "CLV Analysis", "Customer Lookup", "Recommendations"],
         label_visibility="collapsed",
     )
 
