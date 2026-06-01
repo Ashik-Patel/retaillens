@@ -1,42 +1,44 @@
 # RetailLens
 
-RetailLens looks at customer purchase history and groups them based on how they shop. It also predicts how much each customer is likely to spend in the next 12 months.
-
 🔗 **Live app:** [retaillens.streamlit.app](https://retaillens.streamlit.app)
 
----
-
-## Why I built this
-
-Not every customer is the same. Some buy regularly, others haven't ordered in months. This project helps a business see who their best customers are, who might be leaving, and where to spend their marketing money.
+I built this project to sharpen my data analysis skills and push myself to work with a real dataset end to end — from messy raw data all the way through to a live deployed app. I learnt a lot along the way, especially around customer modelling and building things that actually work outside of a notebook.
 
 ---
 
-## What I did
+## What it does
 
-**1. Cleaned the data**
-The raw dataset had over a million rows. I removed orders with no customer ID, cancelled orders, and anything with missing or incorrect values. That left around 805,000 usable transactions from 5,878 customers.
+RetailLens takes customer transaction data and helps answer a simple question — which customers are worth investing in, and which ones have already moved on?
 
-**2. RFM analysis**
-I turned all those transactions into one summary row per customer showing three things — when they last bought, how many times they've ordered, and how much they've spent overall.
-
-**3. Grouped customers into segments**
-Used a clustering algorithm to split customers into three groups based on their buying patterns — Champions, Loyal Customers, and Lost or Inactive customers.
-
-**4. Predicted future value**
-Used a statistical model to estimate how much each customer is likely to spend over the next 12 months. Champions averaged £55,447, Loyal Customers £2,008, and Lost customers just £97.
+It groups customers by how they shop and predicts how much each one is likely to spend over the next year. The results are shown in an interactive dashboard anyone can open in their browser.
 
 ---
 
-## The app
+## How I built it
 
-The Streamlit dashboard has five pages:
+**Cleaning the data**
+The raw dataset had just over a million rows of UK retail transactions. A lot of it wasn't usable — guest orders with no customer ID, cancellations, and rows with missing values. After cleaning, I had around 805,000 transactions from 5,878 customers to work with.
 
-- **Overview** — key numbers, segment breakdown, monthly revenue
-- **Segment Explorer** — compare segments with interactive charts
-- **CLV Analysis** — predicted value by segment and top customers
-- **Customer Lookup** — search any customer and see their order history
-- **Recommendations** — what to do with each customer group
+**RFM analysis**
+I summarised each customer's history into three numbers — how recently they bought, how often they order and how much they've spent in total. This is called RFM analysis and it's a straightforward way to compare customers who would otherwise be lost in a sea of rows.
+
+**Segmenting customers**
+I used K-Means clustering to group customers into three segments based on their RFM scores. Rather than just picking a number of groups, I used the silhouette score to find the right one objectively.
+
+**Predicting future value**
+I used the BG/NBD model to predict how often each customer would buy again, and the Gamma-Gamma model to estimate how much they'd spend per order. Together these give a 12-month revenue prediction per customer - Champions averaged around £55k, Loyal Customers around £2k and Lost customers just £97.
+
+---
+
+## The dashboard
+
+Built with Streamlit and publicly deployed. It has five pages:
+
+- **Overview** — top level numbers and a monthly revenue chart
+- **Segment Explorer** — compare the three customer groups visually
+- **CLV Analysis** — predicted value by segment and the top 20 customers
+- **Customer Lookup** — type in any customer ID to see their full history
+- **Recommendations** — practical actions for each customer group
 
 ---
 
@@ -52,5 +54,5 @@ The Streamlit dashboard has five pages:
 
 ---
 
-Built by **Ashik Patel** — Data Analyst, United Kingdom  
+Built by **Ashik Patel** — Data Analyst, United Kingdom
 [retaillens.streamlit.app](https://retaillens.streamlit.app)
