@@ -10,7 +10,6 @@ import streamlit as st
 # Page setup
 st.set_page_config(
     page_title="RetailLens",
-    page_icon="🔍",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -140,8 +139,8 @@ with st.sidebar:
 
     st.markdown("---")
     st.markdown("**Dataset**")
-    st.caption(f"{len(df):,}` transactions")
-    st.caption(f"{rfm['Customer ID'].nunique():,}` customers")
+    st.caption(f"{len(df):,} transactions")
+    st.caption(f"{rfm['Customer ID'].nunique():,} customers")
     st.caption(f"{start_date} – {end_date}")
     st.markdown("---")
     st.caption("Built by **Ashik Patel**")
@@ -482,7 +481,6 @@ elif page == "Recommendations":
     recs = {
         "Champions": {
             "color": "#1D9E75",
-            "icon": "🏆",
             "stats": champions,
             "what": (
                 f"Your top {len(champions):,} customers by purchase frequency and spend. "
@@ -499,7 +497,6 @@ elif page == "Recommendations":
         },
         "Loyal Customers": {
             "color": "#378ADD",
-            "icon": "⭐",
             "stats": loyal,
             "what": (
                 f"Your core base of {len(loyal):,} active customers. They bought recently, "
@@ -516,7 +513,6 @@ elif page == "Recommendations":
         },
         "Lost / Inactive": {
             "color": "#888780",
-            "icon": "💤",
             "stats": inactive,
             "what": (
                 f"{len(inactive):,} customers have not purchased in "
@@ -535,7 +531,7 @@ elif page == "Recommendations":
 
     for seg, data in recs.items():
         with st.expander(
-            f"{data['icon']}  {seg}  —  {len(data['stats']):,} customers",
+            f"{seg}  —  {len(data['stats']):,} customers",
             expanded=True,
         ):
             st.markdown(f"**What the data says:** {data['what']}")
