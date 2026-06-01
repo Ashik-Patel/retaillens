@@ -129,18 +129,18 @@ end_date = df["InvoiceDate"].max().strftime("%b %Y")
 
 # Sidebar
 with st.sidebar:
-    st.markdown('<div class="brand-title">🔍 RetailLens</div>', unsafe_allow_html=True)
+    st.markdown('<div class="brand-title">RetailLens</div>', unsafe_allow_html=True)
     st.markdown('<div class="brand-sub">Customer Intelligence Platform</div>', unsafe_allow_html=True)
     st.markdown("---")
 
     page = st.radio(
         "Navigate",
         [
-            "📈 Overview",
-            "🔍 Segment Explorer",
-            "💰 CLV Analysis",
-            "🔎 Customer Lookup",
-            "💡 Recommendations",
+            "Overview",
+            "Segment Explorer",
+            "CLV Analysis",
+            "Customer Lookup",
+            "Recommendations",
         ],
         label_visibility="collapsed",
     )
