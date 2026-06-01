@@ -538,7 +538,7 @@ elif page == "Recommendations":
 
     for seg, data in recs.items():
         with st.expander(
-            f"{data['icon']}  {seg}  —  {len(data['stats']):,} customers",
+            f"{seg}  —  {len(data['stats']):,} customers",
             expanded=True,
         ):
             st.markdown(f"**What the data says:** {data['what']}")
